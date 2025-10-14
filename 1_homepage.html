@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>早安-燒個餅</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./nav.css">
+    <style>
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('https://www.macc.com.tw/upload/banner1.jpg') center center / cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #f5f4f266;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: white;
+            z-index: 1;
+        }
+
+        /* 控制圖片輪播 */
+        .carousel {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: auto;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        /* 主內容 */
+        main {
+            padding: 100px 20px 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: #b83c3c;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .menu-info {
+            padding: 16px;
+            text-align: center;
+        }
+
+        .menu-info h3 {
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .menu-info p {
+            color: #b83c3c;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header id="site-header">
+        <div class="logo"><a href="1_homepage.html">早安-燒個餅</a></div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="2_menu.html">菜單/線上訂餐</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="2_menu.html#shaobing">吃燒餅</a></li>
+                        <li><a href="2_menu.html#toast">吃吐司</a></li>
+                        <li><a href="2_menu.html#eggroll">吃蛋餅</a></li>
+                        <li><a href="2_menu.html#burger">吃漢堡</a></li>
+                        <li><a href="2_menu.html#brownsugarroll">吃黑糖捲</a></li>
+                        <li><a href="2_menu.html#grabbing">吃抓餅</a></li>
+                        <li><a href="2_menu.html#drink">飲品</a></li>
+                        <li><a href="2_menu.html#pasta">義大利麵</a></li>
+                        <li><a href="2_menu.html#jamtoast">果醬吐司</a></li>
+                        <li><a href="2_menu.html#dessert">其他點心</a></li>
+                    </ul>
+                </li>
+                <li><a href="3_newmassage.html">公告</a></li>
+                <li><a href="4_feedback.html">意見回饋</a></li>
+                <li>
+                    <a href="#" id="cartBtn">🛒 購物車</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>每個早晨，都值得一份溫暖</h1>
+        <div class="carousel">
+            <img src="" alt="圖一" class="slide active">
+            <img src="" alt="圖二" class="slide">
+            <img src="" alt="圖三" class="slide">
+        </div>
+    </section>
+
+    <!-- 主內容 -->
+    <main>
+        <h2 class="section-title" id="menu">📢人氣精選菜單</h2>
+
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://www.macc.com.tw/upload/menu/b1.jpg" alt="吃燒餅">
+                <div class="menu-info">
+                    <a href="2_menu.html#shaobing">
+                        <h3>濃起司蛋燒餅</h3>
+                    </a>
+                    <p>NT$55</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://www.macc.com.tw/upload/menu/b3.jpg" alt="吃漢堡">
+                <div class="menu-info">
+                    <a href="2_menu.html#burger">
+                        <h3>花生卡拉雞蛋漢堡</h3>
+                    </a>
+                    <p>NT$75</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://www.macc.com.tw/upload/menu/d1.jpg" alt="喝飲料">
+                <div class="menu-info">
+                    <a href="2_menu.html#brownsugarroll">
+                        <h3>火腿蛋黑糖捲</h3>
+                    </a>
+                    <p>NT$35</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://www.macc.com.tw/upload/menu/c1.jpg" alt="吃蛋餅">
+                <div class="menu-info">
+                    <a href="2_menu.html#eggroll">
+                        <h3>麥克雞塊蛋餅</h3>
+                    </a>
+                    <p>NT$45</p>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+    <hr>
+    <!-- Footer -->
+    <footer>
+        地址：台中市神岡區中山路1242-1號 ｜ 訂購專線：04-2562-1251<br>
+        營業時間：週二至週日 06:00-11:00 ｜ © 2025 早安-燒個餅
+    </footer>
+
+
+
+
+    <script>
+
+        // 圖片自動播放
+        let currenslide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = silde.length;
+
+        function showNextSlide() {
+            slides[currenslide].classList.remove('active');
+            currenslide = (currenslide + 1) % totalSlides;
+            slides[currenslide].classList.add('active');
+        }
+
+        setInterval(showNextSlide, 3000);
+    </script>
+
+
+    <!-- 側邊購物車 -->
+
+    <div id="cartPanel" class="cart-panel">
+        <div class="cart-header">
+            <h3>購物車</h3>
+            <button id="closeCart">✕</button>
+        </div>
+        <ul id="cartItems"></ul>
+        <div class="cart-footer">
+            <p>總計：<span id="cartTotal">$0</span></p>
+            <button id="checkoutBtn">送出訂單</button>
+        </div>
+        <div class="qty-controls">
+            <button onclick="updateQty('${item.name}', -1)">−</button>
+            <span>${item.qty}</span>
+            <button onclick="updateQty('${item.name}', 1)">＋</button>
+        </div>
+    </div>
+
+    <script src="./scroll.js"></script>
+
+</body>
+
+</html>

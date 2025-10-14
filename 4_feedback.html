@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="./nav.css">
+    <style>
+        .w5-container {
+            width: 400px;
+            margin: 50px auto;
+            border-radius: 80px;
+        }
+
+        form {
+            background-color: #7d5f36;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: black;
+            font-size: 35px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid#ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #f2e0c7;
+            padding: 5px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            color: #7d5f36;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="site-header">
+        <div class="logo"><a href="1_homepage.html">早安-燒個餅</a></div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="2_menu.html">菜單/線上訂餐</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="2_menu.html#shaobing">吃燒餅</a></li>
+                        <li><a href="2_menu.html#toast">吃吐司</a></li>
+                        <li><a href="2_menu.html#eggroll">吃蛋餅</a></li>
+                        <li><a href="2_menu.html#burger">吃漢堡</a></li>
+                        <li><a href="2_menu.html#brownsugarroll">吃黑糖捲</a></li>
+                        <li><a href="2_menu.html#grabbing">吃抓餅</a></li>
+                        <li><a href="2_menu.html#drink">飲品</a></li>
+                        <li><a href="2_menu.html#pasta">義大利麵</a></li>
+                        <li><a href="2_menu.html#jamtoast">果醬吐司</a></li>
+                        <li><a href="2_menu.html#dessert">其他點心</a></li>
+                    </ul>
+                </li>
+                <li><a href="3_newmassage.html">公告</a></li>
+                <li><a href="4_feedback.html">意見回饋</a></li>
+                <li>
+                    <a href="#" id="cartBtn">🛒 購物車</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <br>
+
+    <div class="w5-container">
+
+        <div>
+            <form>
+                <h2>📣 意見回饋</h2>
+
+                <label>您想給我們什麼建議？</label><br>
+                <input type="text" placeholder="請留下您的寶貴建議..."></input>
+
+                <label>關於哪一部分需要改善？</label>
+
+                <select>
+                    <option>餐點品質</option>
+                    <option>服務態度</option>
+                    <option>環境清潔</option>
+                    <option>價格/份量</option>
+                    <option>其他</option>
+                </select>
+
+                <label>請留下您的 Email</label><br>
+                <input type="email" placeholder="email@gmail.com">
+                <br>
+                <button type="submit">送出</button>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <!-- Footer -->
+    <footer>
+        地址：台中市神岡區中山路1242-1號 ｜ 訂購專線：04-2562-1251<br>
+        營業時間：週二至週日 06:00-11:00 ｜ © 2025 早安-燒個餅
+    </footer>
+
+    <!-- 側邊購物車 -->
+
+    <div id="cartPanel" class="cart-panel">
+        <div class="cart-header">
+            <h3>購物車</h3>
+            <button id="closeCart">✕</button>
+        </div>
+        <ul id="cartItems"></ul>
+        <div class="cart-footer">
+            <p>總計：<span id="cartTotal">$0</span></p>
+            <button id="checkoutBtn">送出訂單</button>
+        </div>
+    </div>
+    <script src="./scroll.js"></script>
+</body>
+
+</html>
