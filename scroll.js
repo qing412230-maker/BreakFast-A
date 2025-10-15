@@ -10,25 +10,21 @@ window.addEventListener('scroll', () => {
 
 
 
-//  側邊購物車 
-
-
+// ----------------- 抓取 DOM 元素 -----------------
 const cartPanel = document.getElementById('cartPanel');
-const closeCart = document.getElementById('closeCart');
 const cartItems = document.getElementById('cartItems');
 const cartTotal = document.getElementById('cartTotal');
+const cartBtn = document.getElementById('cartBtn'); // 購物車按鈕
+const closeCart = document.getElementById('closeCart');
 
-let cart = [];
+// ----------------- 購物車資料 -----------------
+let cart = []; // 儲存商品 { name, price, qty }
 
-cartBtn.addEventListener('click', () => {
-  cartPanel.classList.toggle('open');
-});
+// ----------------- 顯示 / 隱藏購物車 -----------------
+cartBtn.addEventListener('click', () => cartPanel.classList.toggle('open'));
+closeCart.addEventListener('click', () => cartPanel.classList.remove('open'));
 
-closeCart.addEventListener('click', () => {
-  cartPanel.classList.remove('open');
-});
-
-// 點擊加入購物車
+// ----------------- 加入購物車 -----------------
 document.querySelectorAll('.add-to-cart').forEach(button => {
   button.addEventListener('click', () => {
     const item = button.closest('.menu-item');
@@ -37,13 +33,11 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 
     addToCart(name, price);
     renderCart();
-
-    // 點加入購物車呼叫cartPanel視窗
-    // cartPanel.classList.add('open');
+    // cartPanel.classList.add('open'); // 加入後自動打開購物車
   });
 });
 
-// 新增商品或增加數量
+// ----------------- 新增或增加商品數量 -----------------
 function addToCart(name, price) {
   const existing = cart.find(i => i.name === name);
   if (existing) {
@@ -53,13 +47,22 @@ function addToCart(name, price) {
   }
 }
 
-// 刪除單項商品
+// ----------------- 刪除商品 -----------------
 function removeFromCart(name) {
   cart = cart.filter(i => i.name !== name);
   renderCart();
 }
 
-// 更新購物車畫面
+// ----------------- 更新商品數量 -----------------
+function updateQty(name, delta) {
+  const item = cart.find(i => i.name === name);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) removeFromCart(name);
+  else renderCart();
+}
+
+// ----------------- 渲染購物車 -----------------
 function renderCart() {
   cartItems.innerHTML = '';
   let total = 0;
@@ -68,26 +71,45 @@ function renderCart() {
     total += item.price * item.qty;
 
     const li = document.createElement('li');
+    li.className = 'cart-item';
     li.innerHTML = `
       <div class="cart-item-info">
         <span class="cart-item-name">${item.name}</span>
-        <span class="cart-item-qty">數量：${item.qty}</span>
+        <div class="cart-item-qty-control">
+          <button onclick="updateQty('${item.name}', -1)">➖</button>
+          <span>${item.qty}</span>
+          <button onclick="updateQty('${item.name}', 1)">➕</button>
+        </div>
       </div>
-      <div>
+      <div class="cart-item-price">
         <span>$${item.price * item.qty}</span>
-        <button class="remove-btn" title="刪除" onclick="removeFromCart('${item.name}')">✕</button>
+        <button class="remove-btn" onclick="removeFromCart('${item.name}')">✕</button>
       </div>
     `;
     cartItems.appendChild(li);
   });
 
   cartTotal.textContent = `$${total}`;
-
-  function updateQty(name, delta) {
-    const item = cart.find(i => i.name === name);
-    if (!item) return;
-    item.qty += delta;
-    if (item.qty <= 0) cart = cart.filter(i => i.name !== name);
-    renderCart();
-  }
 }
+
+
+
+const checkoutBtn = document.getElementById('checkoutBtn');
+
+checkoutBtn.addEventListener('click', () => {
+  // 如果購物車是空的，顯示提示並停止
+  if (cart.length === 0) {
+    alert('您的購物車目前沒有任何餐點喔!');
+    return; // <-- 非常重要，停止後續程式
+  }
+
+  // 有商品才會執行下面這行
+  alert('已收到您的訂單,馬上幫您製作餐點!');
+
+  // 清空購物車
+  cart = [];
+  renderCart();
+
+  // 關閉購物車面板
+  cartPanel.classList.remove('open');
+});

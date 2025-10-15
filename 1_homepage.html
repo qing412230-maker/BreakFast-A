@@ -217,26 +217,6 @@
         <a href="#" class="fa fa-youtube"></a>
     </footer>
 
-
-
-
-    <script>
-
-        // 圖片自動播放
-        let currenslide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = silde.length;
-
-        function showNextSlide() {
-            slides[currenslide].classList.remove('active');
-            currenslide = (currenslide + 1) % totalSlides;
-            slides[currenslide].classList.add('active');
-        }
-
-        setInterval(showNextSlide, 3000);
-    </script>
-
-
     <!-- 側邊購物車 -->
 
     <div id="cartPanel" class="cart-panel">
@@ -256,6 +236,22 @@
         </div>
     </div>
 
+    <script>
+
+        // 圖片自動播放
+        let currenslide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showNextSlide() {
+            slides[currenslide].classList.remove('active');
+            currenslide = (currenslide + 1) % totalSlides;
+            slides[currenslide].classList.add('active');
+        }
+
+        setInterval(showNextSlide, 3000);
+    </script>
+    
     <script src="./scroll.js"></script>
 
 </body>

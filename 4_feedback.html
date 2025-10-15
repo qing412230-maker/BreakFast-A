@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback</title>
     <link rel="stylesheet" href="./nav.css">
@@ -139,7 +140,7 @@
     <footer>
         地址：台中市神岡區中山路1242-1號 ｜ 訂購專線：04-2562-1251<br>
         營業時間：週二至週日 06:00-11:00 ｜ © 2025 早安-燒個餅
-        
+
         <a href="#" class="fa fa-instagram"></a>
         <a href="#" class="fa fa-facebook"></a>
         <a href="#" class="fa fa-youtube"></a>
@@ -161,19 +162,22 @@
 
     <!-- 按按鈕顯示收到訊息 -->
     <script>
-        BtnSubmit.addEventListener('click', () => {
-            const input = document.getElementById('suggestmassage').value.trim();
-            if (input === "") {
-                input.preventDefault();
+        BtnSubmit.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const message = document.getElementById('suggestmassage').value.trim();
+            const email = document.getElementById('useremail').value.trim();
+
+            if (message === '' && email === '') {
                 alert('請勿空白');
+            } else if (message === '') {
+                alert('未留下任何建議,請填寫留言');
+            } else if (email === '') {
+                alert('Email未填寫');
+            } else {
+                alert('感謝您的建議');
             }
-            else if (input.useremail === '') {
-                alert('請填寫email');
-            }
-            else {
-                alert('感謝您的填寫');
-            }
-        })
+        });
 
     </script>
     <script src="./scroll.js"></script>
