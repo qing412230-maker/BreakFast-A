@@ -1,11 +1,11 @@
 //    JS：滾動 header 變色 
 window.addEventListener('scroll', () => {
-    const header = document.getElementById('site-header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
+  const header = document.getElementById('site-header');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
 });
 
 
@@ -21,11 +21,11 @@ const cartTotal = document.getElementById('cartTotal');
 let cart = [];
 
 cartBtn.addEventListener('click', () => {
-    cartPanel.classList.toggle('open');
+  cartPanel.classList.toggle('open');
 });
 
 closeCart.addEventListener('click', () => {
-    cartPanel.classList.remove('open');
+  cartPanel.classList.remove('open');
 });
 
 // 點擊加入購物車
@@ -37,7 +37,9 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 
     addToCart(name, price);
     renderCart();
-    cartPanel.classList.add('open');
+
+    // 點加入購物車呼叫cartPanel視窗
+    // cartPanel.classList.add('open');
   });
 });
 
@@ -82,10 +84,10 @@ function renderCart() {
   cartTotal.textContent = `$${total}`;
 
   function updateQty(name, delta) {
-  const item = cart.find(i => i.name === name);
-  if (!item) return;
-  item.qty += delta;
-  if (item.qty <= 0) cart = cart.filter(i => i.name !== name);
-  renderCart();
-}
+    const item = cart.find(i => i.name === name);
+    if (!item) return;
+    item.qty += delta;
+    if (item.qty <= 0) cart = cart.filter(i => i.name !== name);
+    renderCart();
+  }
 }

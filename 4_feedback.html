@@ -8,27 +8,45 @@
     <link rel="stylesheet" href="./nav.css">
     <style>
         .w5-container {
-            width: 400px;
-            margin: 50px auto;
+            width: 300px;
+            margin: 10px auto;
             border-radius: 80px;
+            margin-top: 60px;
         }
 
         form {
+            margin-left: -120px;
             background-color: #7d5f36;
-            padding: 40px 30px;
+            padding: 80px 20px;
+            margin-right: 120px;
             border-radius: 20px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             width: 500px;
         }
 
         h2 {
-            text-align: center;
-            margin-bottom: 20px;
+            position: left;
+            padding-top: -5px;
             color: black;
-            font-size: 35px;
+            font-size: 25px;
         }
 
-        input[type="text"],
+        label {
+            display: block;
+            margin: auto;
+        }
+
+        input[type="text"] {
+            height: 80px;
+            width: 100%;
+            padding: 10px;
+            margin-top: 0px;
+            border: 1px solid#ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+
         input[type="email"] {
             width: 100%;
             padding: 10px;
@@ -38,12 +56,19 @@
             font-size: 14px;
         }
 
+        select {
+            border-radius: 5px;
+            font-size: 14px;
+            border: 1px solid#ccc;
+        }
+
         button {
             background-color: #f2e0c7;
             padding: 5px;
             border: none;
-            border-radius: 30px;
+            border-radius: 5px;
             cursor: pointer;
+
         }
 
         button:hover {
@@ -89,10 +114,10 @@
             <form>
                 <h2>📣 意見回饋</h2>
 
-                <label>您想給我們什麼建議？</label><br>
-                <input type="text" placeholder="請留下您的寶貴建議..."></input>
+                <label>您想給我們什麼建議:</label>
+                <input id="suggestmassage" type="text" placeholder="請留下您的寶貴建議..."></input>
 
-                <label>關於哪一部分需要改善？</label>
+                <label>關於哪一部分需要改善:</label>
 
                 <select>
                     <option>餐點品質</option>
@@ -102,10 +127,10 @@
                     <option>其他</option>
                 </select>
 
-                <label>請留下您的 Email</label><br>
-                <input type="email" placeholder="email@gmail.com">
-                <br>
-                <button type="submit">送出</button>
+                <label>請留下您的 Email:</label>
+                <input id="useremail" type="email" placeholder="email@gmail.com">
+
+                <button id="BtnSubmit" type="submit">送出</button>
             </form>
         </div>
     </div>
@@ -114,6 +139,10 @@
     <footer>
         地址：台中市神岡區中山路1242-1號 ｜ 訂購專線：04-2562-1251<br>
         營業時間：週二至週日 06:00-11:00 ｜ © 2025 早安-燒個餅
+        
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-youtube"></a>
     </footer>
 
     <!-- 側邊購物車 -->
@@ -129,6 +158,24 @@
             <button id="checkoutBtn">送出訂單</button>
         </div>
     </div>
+
+    <!-- 按按鈕顯示收到訊息 -->
+    <script>
+        BtnSubmit.addEventListener('click', () => {
+            const input = document.getElementById('suggestmassage').value.trim();
+            if (input === "") {
+                input.preventDefault();
+                alert('請勿空白');
+            }
+            else if (input.useremail === '') {
+                alert('請填寫email');
+            }
+            else {
+                alert('感謝您的填寫');
+            }
+        })
+
+    </script>
     <script src="./scroll.js"></script>
 </body>
 
