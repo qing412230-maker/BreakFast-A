@@ -16,14 +16,18 @@ const cartItems = document.getElementById('cartItems');
 const cartTotal = document.getElementById('cartTotal');
 const cartBtn = document.getElementById('cartBtn'); // 購物車按鈕
 const closeCart = document.getElementById('closeCart');
+const checkoutBtn = document.getElementById('checkoutBtn');
 
 
 // ----------------- 購物車資料 -----------------
 let cart = []; // 儲存商品 { name, price, qty }
 
 // ----------------- 顯示 / 隱藏購物車 -----------------
-cartBtn.addEventListener('click', () => cartPanel.classList.toggle('open'));
-closeCart.addEventListener('click', () => cartPanel.classList.remove('open'));
+
+closeCart.addEventListener('click', (e) => {
+  e.stopPropagation();
+  cartPanel.classList.remove('active')
+});
 
 // ----------------- 加入購物車 -----------------
 document.querySelectorAll('.add-to-cart').forEach(button => {
@@ -38,14 +42,24 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
   });
 });
 
+
+// 點擊購物車本身不關閉
+cartPanel.addEventListener('click', (e) => {
+  e.stopPropagation();
+});
+
 //--------------- 點擊空白處關閉購物車------------------
 
 document.addEventListener('click', (e) => {
-  if (cartPanel.classList.contains('active')) {
-    if (!cartPanel.contains(e.target) && e.target !== cartBtn) {
-      cartPanel.classList.remove('active');
-    }
+  if (
+    cartPanel.classList.contains('active') &&
+    !cartPanel.contains(e.target) &&
+    e.target !== cartBtn
+
+  ) {
+    cartPanel.classList.remove('active');
   }
+
 });
 
 cartBtn.addEventListener('click', (e) => {
@@ -112,7 +126,7 @@ function renderCart() {
 
 
 
-const checkoutBtn = document.getElementById('checkoutBtn');
+
 
 checkoutBtn.addEventListener('click', () => {
   // 如果購物車是空的，顯示提示並停止
@@ -129,5 +143,5 @@ checkoutBtn.addEventListener('click', () => {
   renderCart();
 
   // 關閉購物車面板
-  cartPanel.classList.remove('open');
+  cartPanel.classList.remove('active');
 });

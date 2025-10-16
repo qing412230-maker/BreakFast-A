@@ -148,14 +148,14 @@ footer {
     width: 350px;
     height: 100%;
     background: #f2e0c7;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.4);
     transition: right 0.5s ease;
     display: flex;
     flex-direction: column;
     z-index: 9999;
 }
 
-.cart-panel.open {
+.cart-panel.active {
     right: 0;
 }
 
@@ -208,6 +208,6 @@ footer {
 }
 
 #closeCart,
-#checkoutBtn :hover {
+#checkoutBtn:hover {
     opacity: 0.7;
 }
