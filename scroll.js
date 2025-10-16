@@ -17,6 +17,7 @@ const cartTotal = document.getElementById('cartTotal');
 const cartBtn = document.getElementById('cartBtn'); // 購物車按鈕
 const closeCart = document.getElementById('closeCart');
 
+
 // ----------------- 購物車資料 -----------------
 let cart = []; // 儲存商品 { name, price, qty }
 
@@ -36,6 +37,23 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     // cartPanel.classList.add('open'); // 加入後自動打開購物車
   });
 });
+
+//--------------- 點擊空白處關閉購物車------------------
+
+document.addEventListener('click', (e) => {
+  if (cartPanel.classList.contains('active')) {
+    if (!cartPanel.contains(e.target) && e.target !== cartBtn) {
+      cartPanel.classList.remove('active');
+    }
+  }
+});
+
+cartBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  cartPanel.classList.toggle('active');
+});
+
+
 
 // ----------------- 新增或增加商品數量 -----------------
 function addToCart(name, price) {
@@ -83,7 +101,7 @@ function renderCart() {
       </div>
       <div class="cart-item-price">
         <span>$${item.price * item.qty}</span>
-        <button class="remove-btn" onclick="removeFromCart('${item.name}')">✕</button>
+        <button class="remove-btn" onclick="removeFromCart('${item.name}')">🗑️</button>
       </div>
     `;
     cartItems.appendChild(li);
