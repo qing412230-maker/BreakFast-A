@@ -38,7 +38,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 
     addToCart(name, price);
     renderCart();
-    // cartPanel.classList.add('open'); // 加入後自動打開購物車
+    // cartPanel.classList.add('active'); // 加入後自動打開購物車
   });
 });
 
