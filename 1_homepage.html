@@ -39,10 +39,29 @@
 
         /* 控制圖片輪播 */
         .carousel {
+            width: 60vw;
+            height: 80vh;
             position: relative;
-            max-width: 600px;
-            margin: auto;
+            margin: 10 auto;
             overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            z-index: 0;
+        }
+
+        .carousel img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        .carousel img.active {
+            display: block;
         }
 
         .slide {
@@ -113,7 +132,11 @@
 
 <body>
     <header id="site-header">
-        <div class="logo"><a href="1_homepage.html">早安-燒個餅</a></div>
+        <div class="logo">
+            <a href="1_homepage.html"><img src="./logo.jpg" alt="logo" class="logo-img">
+                早安-燒個餅
+            </a>
+        </div>
         <nav>
             <ul>
                 <li class="dropdown">
@@ -143,11 +166,11 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>每個早晨，都值得一份溫暖</h1>
+
         <div class="carousel">
-            <img src="" alt="圖一" class="slide active">
-            <img src="" alt="圖二" class="slide">
-            <img src="" alt="圖三" class="slide">
+            <img src="./shaobing.jpg" alt="圖一" class="slide active">
+            <img src="./toast.jpg" alt="圖二" class="slide">
+            <img src="./pasta.jpg" alt="圖三" class="slide">
         </div>
     </section>
 
@@ -157,46 +180,46 @@
 
         <div class="menu-grid">
             <div class="menu-item">
-                <img src="https://www.macc.com.tw/upload/menu/b1.jpg" alt="吃燒餅">
-                <div class="menu-info">
-                    <a href="2_menu.html#shaobing">
-                        <h3>濃起司蛋燒餅</h3>
-                    </a>
-                    <p>NT$55</p>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="https://www.macc.com.tw/upload/menu/b3.jpg" alt="吃漢堡">
-                <div class="menu-info">
-                    <a href="2_menu.html#burger">
-                        <h3>花生卡拉雞蛋漢堡</h3>
-                    </a>
-                    <p>NT$75</p>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="https://www.macc.com.tw/upload/menu/d1.jpg" alt="喝飲料">
-                <div class="menu-info">
-                    <a href="2_menu.html#brownsugarroll">
-                        <h3>火腿蛋黑糖捲</h3>
-                    </a>
-                    <p>NT$35</p>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="https://www.macc.com.tw/upload/menu/c1.jpg" alt="吃蛋餅">
+                <img src="./eggroll.jpg" alt="吃蛋餅">
                 <div class="menu-info">
                     <a href="2_menu.html#eggroll">
-                        <h3>麥克雞塊蛋餅</h3>
+                        <h3>濃起司蛋餅</h3>
                     </a>
                     <p>NT$45</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./toast.jpg" alt="吃吐司">
+                <div class="menu-info">
+                    <a href="2_menu.html#jamtoast">
+                        <h3>奶酥厚片</h3>
+                    </a>
+                    <p>NT$30</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./fry.jpg" alt="其他點心">
+                <div class="menu-info">
+                    <a href="2_menu.html#dessert">
+                        <h3>炸物</h3>
+                    </a>
+                    <p>NT$30</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./紅茶跟奶茶.jpg" alt="飲品">
+                <div class="menu-info">
+                    <a href="2_menu.html#drink">
+                        <h3>飲品</h3>
+                    </a>
+                    <p>NT$25</p>
                 </div>
 
             </div>
 
         </div>
     </main>
-    <hr>
+
     <!-- Footer -->
     <footer>
         地址：台中市神岡區中山路1242-1號 ｜ 訂購專線：04-2562-1251<br>
