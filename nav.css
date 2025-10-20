@@ -33,12 +33,12 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 9998;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
+    transition: background 0.1s ease, box-shadow 0.1s ease;
 }
 
 header.scrolled {
     background: #f2e0c7;
-    box-shadow: 0 2px 6px #7d5f36(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px #f2e0c7(0, 0, 0, 0.8);
 }
 
 .logo a {
@@ -52,7 +52,7 @@ header.scrolled {
 
 .logo-img {
     width: 60px;
-    height: 60px;
+    height: 50px;
     margin-right: 5px;
 }
 
@@ -76,7 +76,7 @@ nav ul li a {
 }
 
 #site-header a:hover {
-    background-color: #f2e0c7;
+    /* background-color: #f2e0c7; */
     color: #7d5f36;
     border-radius: 15px;
 }

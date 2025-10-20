@@ -43,7 +43,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 });
 
 
-// 點擊購物車本身不關閉
+// --------------點擊購物車本身不關閉------------------
 cartPanel.addEventListener('click', (e) => {
   e.stopPropagation();
 });
@@ -132,7 +132,7 @@ checkoutBtn.addEventListener('click', () => {
   // 如果購物車是空的，顯示提示並停止
   if (cart.length === 0) {
     alert('您的購物車目前沒有任何餐點喔!');
-    return; // <-- 非常重要，停止後續程式
+    return; // <-- 停止後續程式
   }
 
   // 有商品才會執行下面這行
